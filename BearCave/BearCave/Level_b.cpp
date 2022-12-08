@@ -6,6 +6,11 @@ void Level_b::initShape()
 	this->shape.setFillColor(sf::Color::Red);
 }
 
+void Level_b::initGameObjects()
+{
+
+}
+
 Level_b::Level_b()
 {
 	this->initShape();

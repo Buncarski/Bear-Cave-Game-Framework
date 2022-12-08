@@ -11,6 +11,7 @@ private:
 
 	Level* level;
 	int levelNum;
+	int lastLevel;
 
 	void initWindow();
 	void initLevel();
@@ -18,7 +19,6 @@ private:
 public:
 	//Constructor and destructor
 	Game();
-	Game(const Game&) = default;
 	virtual ~Game();
 
 	//

@@ -3,8 +3,10 @@
 class Level_a : virtual public Level
 {
 private:
-	sf::CircleShape shape;
-	void initShape();
+
+	//init variable functions
+	void initGameObjects() override;
+
 public:
 	Level_a();
 	virtual ~Level_a();

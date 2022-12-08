@@ -15,6 +15,7 @@ void Game::initLevel()
 Game::Game()
 {
 	this->levelNum = 1;
+	this->lastLevel = levelNum;
 	this->initWindow();
 
 	this->initLevel();
@@ -51,6 +52,8 @@ void Game::UpdateLevel()
 	else {
 		this->level = new Level_a();
 	}
+
+	this->lastLevel = this->levelNum;
 }
 
 void Game::UpdateEventPolls()
@@ -79,7 +82,10 @@ void Game::Update()
 {
 	this->UpdateEventPolls();
 
-	this->UpdateLevel();
+	if(this->lastLevel != this->levelNum)
+		this->UpdateLevel();
+
+	this->level->Update();
 }
 
 void Game::Render()

@@ -5,6 +5,8 @@ class Level_b : public Level
 private:
 	sf::CircleShape shape;
 	void initShape();
+
+	void initGameObjects() override;
 public:
 	Level_b();
 	virtual ~Level_b();

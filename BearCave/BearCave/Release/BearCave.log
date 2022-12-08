@@ -1,0 +1,10 @@
+﻿  Game.cpp
+  Level_a.cpp
+  Level_b.cpp
+  main.cpp
+  Square.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 310 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  BearCave.vcxproj -> D:\Biblioteki\Dokumenty\projects\Bear-Cave-Framework\BearCave\Release\BearCave.exe

@@ -1,27 +1,34 @@
+#include <iostream>
 #include "Level_a.h"
-
-void Level_a::initShape()
+#include "Square.h"
+void Level_a::initGameObjects()
 {
-	this->shape.setRadius(10.f);
-	this->shape.setFillColor(sf::Color::Green);
+	this->gameObjects.push_back(new Square());
+	 this->gameObjects.push_back(new Square("Textures/sample_texture.png", 40.f, 40.f));
 }
 
 Level_a::Level_a()
 {
-	this->initShape();
+	this->initGameObjects();
 }
 
 Level_a::~Level_a()
 {
-
+	for (GameObject* go : gameObjects) {
+		delete go;
+	}
 }
 
 void Level_a::Update()
 {
-
+	for (GameObject* go : gameObjects) {
+		go->Update();
+	}
 }
 
 void Level_a::Render(sf::RenderTarget* target)
 {
-	target->draw(this->shape);
+	for (GameObject* go : gameObjects) {
+		go->Render(target);
+	}
 }
