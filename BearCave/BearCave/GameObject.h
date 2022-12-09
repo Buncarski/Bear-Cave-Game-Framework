@@ -5,9 +5,11 @@
 class GameObject
 {
 protected:
+	//Variables
 	std::map<std::string, sf::Texture*> textures;
 	sf::Sprite sprite;
 public:
+	//Constructor/destructor
 	GameObject() = default;
 	virtual ~GameObject() = default;
 

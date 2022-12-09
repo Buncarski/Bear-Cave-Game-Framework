@@ -7,13 +7,17 @@
 class Level
 {
 protected:
-	std::vector<GameObject*> gameObjects;
+	//Variables
+	std::vector<GameObject*> gameObjects; //Vector containing level objects
 
+	//Variable functions
 	virtual void initGameObjects() = 0;
 public:
+	//Constructor/destructor
 	Level() = default;
 	virtual ~Level() = default;
 
+	//Functions
 	virtual void Update() = 0;
 	virtual void Render(sf::RenderTarget* target) = 0;
 };

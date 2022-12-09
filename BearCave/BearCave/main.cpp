@@ -5,7 +5,7 @@ int main()
 
     Game game;
 
-    game.Run();
+    game.Run(); //Game loop
 
     return 0;
 }

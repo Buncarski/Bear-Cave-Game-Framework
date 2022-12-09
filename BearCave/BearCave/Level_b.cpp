@@ -1,5 +1,7 @@
 #include "Level_b.h"
 
+//Variable functions
+
 void Level_b::initShape()
 {
 	this->shape.setRadius(10.f);
@@ -11,6 +13,8 @@ void Level_b::initGameObjects()
 
 }
 
+//Constructor/destructor
+
 Level_b::Level_b()
 {
 	this->initShape();
@@ -20,6 +24,8 @@ Level_b::~Level_b()
 {
 
 }
+
+//Functions
 
 void Level_b::Update()
 {

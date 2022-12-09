@@ -6,7 +6,7 @@ class Square : virtual public GameObject
 {
 	//Variables
 
-	//Texture change variables
+	//Variables - Texture change variables
 	float currentTexture;
 	float timerMax;
 	float timer;
@@ -16,6 +16,7 @@ class Square : virtual public GameObject
 	virtual void initTextures(std::string texturePath);
 	virtual void initSprite(float xPos, float yPos);
 public:
+	//Constructors/destructor
 	Square();
 	Square(std::string texturePath, float xPos, float yPos);
 	virtual ~Square();

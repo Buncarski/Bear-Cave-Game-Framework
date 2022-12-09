@@ -1,6 +1,7 @@
 #include "Square.h"
 #include <iostream>
 
+//Variable functions
 
 void Square::initVariables()
 {
@@ -25,6 +26,8 @@ void Square::initSprite(float xPos, float yPos)
 	this->sprite.setPosition(xPos, yPos);
 }
 
+//Constructors/destructor
+
 Square::Square()
 {
 	this->initVariables();
@@ -46,10 +49,18 @@ Square::~Square()
 	}
 }
 
+//Functions
+
 void Square::setTexture(std::string textureKey)
 {
 	this->sprite.setTexture(*this->textures[textureKey]);
 }
+
+/*
+	Update: Currently used as a rough way to set up dynamic texture swapping
+		-temporary use
+		-TODO: Animator/Animation class
+*/
 
 void Square::Update()
 {

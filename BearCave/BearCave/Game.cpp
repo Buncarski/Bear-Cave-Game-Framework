@@ -1,21 +1,25 @@
 #include "Game.h"
 #include <iostream>
+
+//Variable functions
 void Game::initWindow()
 {
-	this->gameWindow = new sf::RenderWindow(sf::VideoMode(800, 600), "Same window level swap", sf::Style::Close | sf::Style::Titlebar);
+	this->gameWindow = new sf::RenderWindow(sf::VideoMode(800, 600), "Bear cave", sf::Style::Close | sf::Style::Titlebar);
 	this->gameWindow->setFramerateLimit(60);
 	this->gameWindow->setVerticalSyncEnabled(false);
 }
 
 void Game::initLevel()
 {
+	this->levelNum = 1;
+	this->lastLevel = levelNum;
+
 	this->level = new Level_a();
 }
 
+//Constructor/destructor
 Game::Game()
 {
-	this->levelNum = 1;
-	this->lastLevel = levelNum;
 	this->initWindow();
 
 	this->initLevel();
@@ -28,12 +32,7 @@ Game::~Game()
 	delete this->level;
 }
 
-const bool Game::windowOpened() const
-{
-	return this->gameWindow->isOpen();
-}
-
-
+//Functions
 void Game::Run()
 {
 	while (this->gameWindow->isOpen())
@@ -44,6 +43,10 @@ void Game::Run()
 	}
 }
 
+/*
+	UpdateLevel: creates a new level based on control variable
+		-control variable: levelNum
+*/
 void Game::UpdateLevel()
 {
 	if (levelNum != 1) {
@@ -56,7 +59,7 @@ void Game::UpdateLevel()
 	this->lastLevel = this->levelNum;
 }
 
-void Game::UpdateEventPolls()
+void Game::UpdateEventPolls() 
 {
 	while (this->gameWindow->pollEvent(ev))
 	{
@@ -77,12 +80,11 @@ void Game::UpdateEventPolls()
 	}
 }
 
-//Functions
 void Game::Update()
 {
 	this->UpdateEventPolls();
 
-	if(this->lastLevel != this->levelNum)
+	if(this->lastLevel != this->levelNum) //Currently levels swap based on mouse click - temporary -TODO: better level swap
 		this->UpdateLevel();
 
 	this->level->Update();

@@ -13,6 +13,7 @@ private:
 	int levelNum;
 	int lastLevel;
 
+	//Variable functions
 	void initWindow();
 	void initLevel();
 
@@ -21,17 +22,14 @@ public:
 	Game();
 	virtual ~Game();
 
-	//
-	const bool windowOpened() const;
-
 	//Functions
 	void Run();
 
 	void UpdateLevel();
 	void UpdateEventPolls();
+
+
 	void Update();
 	void Render();
-
-
 };
 
