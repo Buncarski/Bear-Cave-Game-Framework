@@ -9,6 +9,7 @@ class Level
 protected:
 	//Variables
 	std::vector<GameObject*> gameObjects; //Vector containing level objects
+	sf::Event levelEv;
 
 	//Variable functions
 	virtual void initGameObjects() = 0;

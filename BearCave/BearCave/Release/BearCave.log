@@ -1,10 +1,12 @@
 ﻿  Game.cpp
   Level_a.cpp
   Level_b.cpp
+  Player.cpp
   Square.cpp
   main.cpp
   Generating code
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
-  All 310 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  0 of 333 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   BearCave.vcxproj -> D:\Biblioteki\Dokumenty\projects\Bear-Cave-Framework\BearCave\Release\BearCave.exe

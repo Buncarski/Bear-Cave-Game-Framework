@@ -1,12 +1,15 @@
 #include <iostream>
 #include "Level_a.h"
 #include "Square.h"
+#include "Player.h"
 
 //Variable functions
 void Level_a::initGameObjects()
 {
 	this->gameObjects.push_back(new Square());
-	 this->gameObjects.push_back(new Square("Textures/sample_texture.png", 40.f, 40.f));
+	this->gameObjects.push_back(new Square("Textures/sample_texture.png", 0.f, 540.f));
+	this->gameObjects.back()->SetScale(40.f, 2.f);
+	this->gameObjects.push_back(new Player());
 }
 
 //Constructor/destructor

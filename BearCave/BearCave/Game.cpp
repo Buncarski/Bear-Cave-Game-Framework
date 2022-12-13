@@ -61,21 +61,12 @@ void Game::UpdateLevel()
 
 void Game::UpdateEventPolls() 
 {
-	while (this->gameWindow->pollEvent(ev))
+	while (this->gameWindow->pollEvent(gameEv))
 	{
-		if (ev.type == sf::Event::Closed)
+		if (gameEv.type == sf::Event::Closed)
 			this->gameWindow->close();
-		if (ev.type == sf::Event::MouseButtonPressed) {
-			if (ev.mouseButton.button == sf::Mouse::Left) {
-				if (this->levelNum != 2) {
-					this->levelNum = 2;
-
-				}
-				else {
-					this->levelNum = 1;
-				}
-				std::cout << levelNum << "\n";
-			}
+		if (gameEv.type == sf::Event::MouseButtonPressed) {
+			std::cout << levelNum << "\n";
 		}
 	}
 }

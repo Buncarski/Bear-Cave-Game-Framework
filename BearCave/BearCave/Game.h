@@ -7,7 +7,7 @@ class Game
 private:
 	//Attributes
 	sf::RenderWindow* gameWindow;
-	sf::Event ev;
+	sf::Event gameEv;
 
 	Level* level;
 	int levelNum;
