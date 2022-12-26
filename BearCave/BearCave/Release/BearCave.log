@@ -1,12 +1,7 @@
-﻿  Game.cpp
-  Level_a.cpp
-  Level_b.cpp
-  Player.cpp
-  Square.cpp
-  main.cpp
+﻿  Player.cpp
   Generating code
-  0 of 333 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  1 of 344 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  BearCave.vcxproj -> D:\Biblioteki\Dokumenty\projects\Bear-Cave-Framework\BearCave\Release\BearCave.exe
+  BearCave.vcxproj -> C:\Users\BigBounce\Documents\GitHub\Bear-Cave-Game-Framework\BearCave\Release\BearCave.exe

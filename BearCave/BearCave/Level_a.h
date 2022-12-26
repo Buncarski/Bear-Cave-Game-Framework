@@ -1,9 +1,11 @@
 #pragma once
 #include "Level.h"
+#include "Player.h"
 class Level_a : virtual public Level
 {
 private:
 
+	Player* player;
 	//variable functions
 	void initGameObjects() override;
 
@@ -14,6 +16,7 @@ public:
 
 
 	//Functions
+	void UpdateObjectCollisions() override;
 	void Update() override;
 	void Render(sf::RenderTarget* target) override;
 };

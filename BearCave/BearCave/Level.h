@@ -18,7 +18,9 @@ public:
 	Level() = default;
 	virtual ~Level() = default;
 
+
 	//Functions
+	virtual void UpdateObjectCollisions() = 0;
 	virtual void Update() = 0;
 	virtual void Render(sf::RenderTarget* target) = 0;
 };

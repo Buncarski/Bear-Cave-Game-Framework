@@ -1,9 +1,9 @@
 #include "Player.h"
-
+#include <iostream>
 void Player::initVariables()
 {
-	this->x = 200.f;
-	this->y = 200.f;
+	this->position.x = 200.f;
+	this->position.y = 200.f;
 	this->movementSpeed = 3.f;
 }
 
@@ -24,7 +24,7 @@ Player::Player()
 {
 	this->initVariables();
 	this->initTextures("Textures/player_sprite.jpg");
-	this->initSprite(this->x, this->y);
+	this->initSprite(this->position.x, this->position.y);
 }
 
 Player::~Player()
@@ -34,25 +34,45 @@ Player::~Player()
 
 //Functions
 
+bool Player::isAnyKeyPressed()
+{
+	for (int k = -1; k < sf::Keyboard::KeyCount; ++k)
+	{
+		if (sf::Keyboard::isKeyPressed(static_cast<sf::Keyboard::Key>(k)))
+			return true;
+	}
+	return false;
+}
+
+const float Player::getSpeed() const
+{
+	return this->movementSpeed;
+}
+
 void Player::updateInput()
 {
-	
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		this->position.x += this->movementSpeed * -1.f;
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		this->position.x += this->movementSpeed * 1.f;
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		this->position.y += this->movementSpeed * -1.f;
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		this->position.y += this->movementSpeed * 1.f;
 }
 
 void Player::updatePosition()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		this->sprite.move(this->movementSpeed * -1.f, 0.f);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		this->sprite.move(0.f, this->movementSpeed * -1.f);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		this->sprite.move(0.f, this->movementSpeed * 1.f);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		this->sprite.move(this->movementSpeed * 1.f, 0.f);
+	this->sprite.setPosition(this->position.x, this->position.y);
 }
 
 void Player::Update()
 {
+	std::cout << "X: " << this->position.x << "\n";
+	this->updateInput();
 	this->updatePosition();
 }
 

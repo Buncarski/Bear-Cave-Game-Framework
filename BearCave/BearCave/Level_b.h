@@ -16,6 +16,7 @@ public:
 
 
 	//Functions
+	void UpdateObjectCollisions() override;
 	void Update() override;
 	void Render(sf::RenderTarget* target) override;
 };

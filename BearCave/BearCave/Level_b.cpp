@@ -27,6 +27,10 @@ Level_b::~Level_b()
 
 //Functions
 
+void Level_b::UpdateObjectCollisions()
+{
+}
+
 void Level_b::Update()
 {
 

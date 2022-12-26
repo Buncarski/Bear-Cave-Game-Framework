@@ -22,8 +22,11 @@ void Square::initTextures(std::string texturePath)
 
 void Square::initSprite(float xPos, float yPos)
 {
+	this->position.x = xPos;
+	this->position.y = yPos;
+
 	this->sprite.setTexture(*this->textures["SQUARE0"]);
-	this->sprite.setPosition(xPos, yPos);
+	this->sprite.setPosition(this->position);
 }
 
 //Constructors/destructor
