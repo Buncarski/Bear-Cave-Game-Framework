@@ -27,14 +27,19 @@ Level_a::~Level_a()
 
 void Level_a::UpdateObjectCollisions() //INTERGRATE THIS INTO UPDATE THERE IS NO NEED FOR DOUBLE LOOP HERE
 {
+	this->player->IsGrounded(false);
+
 	for (GameObject* go : gameObjects) {
 		if (go->getBounds().intersects(player->getBounds())) {
 			//Bottom object collision
 			if (this->player->getBounds().top + this->player->getBounds().height > go->getBounds().top
-				&& this->player->getBounds().top + this->player->getBounds().height < go->getBounds().top + (this->player->getSpeed()*2.f)) {
+				&& this->player->getBounds().top + this->player->getBounds().height < go->getBounds().top + (this->player->getMovementVector().y*2.f)) {
 				std::cout << "bottom collision." << "\n";
 				this->player->SetPosition(player->getBounds().left,
 					go->getBounds().top - player->getBounds().height);
+
+				this->player->IsGrounded(true);
+				this->player->resetMovementVectorY();
 			}
 
 			//Top object collsion

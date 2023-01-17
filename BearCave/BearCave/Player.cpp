@@ -2,9 +2,14 @@
 #include <iostream>
 void Player::initVariables()
 {
+	this->isGrounded = false;
 	this->position.x = 200.f;
 	this->position.y = 200.f;
 	this->movementSpeed = 3.f;
+	this->jumpHeight = 20.f;
+
+	this->movementVector.x = 0.f;
+	this->movementVector.y = 0.f;
 }
 
 void Player::initTextures(std::string texturePath)
@@ -49,6 +54,31 @@ const float Player::getSpeed() const
 	return this->movementSpeed;
 }
 
+const sf::Vector2f Player::getMovementVector() const
+{
+	return this->movementVector;
+}
+
+void Player::IsGrounded(bool groundedCheck)
+{
+	if (groundedCheck) {
+		this->isGrounded = true;
+	}
+	else {
+		this->isGrounded = false;
+	}
+}
+
+void Player::resetMovementVectorY()
+{
+	movementVector.y = 0.f;
+}
+
+void Player::ApplyGravity()
+{
+	this->movementVector.y += 1.f;
+}
+
 void Player::updateInput()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
@@ -57,21 +87,21 @@ void Player::updateInput()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		this->position.x += this->movementSpeed * 1.f;
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		this->position.y += this->movementSpeed * -1.f;
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		this->position.y += this->movementSpeed * 1.f;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && isGrounded) {
+		movementVector.y -= jumpHeight;
+	}
 }
 
 void Player::updatePosition()
 {
+	this->position.y += movementVector.y;
 	this->sprite.setPosition(this->position.x, this->position.y);
 }
 
 void Player::Update()
 {
-	std::cout << "X: " << this->position.x << "\n";
+	this->ApplyGravity();
+	std::cout << this->movementVector.y << "\n";
 	this->updateInput();
 	this->updatePosition();
 }
